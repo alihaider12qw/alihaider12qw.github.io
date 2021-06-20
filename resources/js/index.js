@@ -85,11 +85,13 @@
         if ($(window).scrollTop() < 60) {
             //background at top
             $("#navbar").addClass("bgLight");
+            $("#navbar").addClass("navbar-light");
             $("#navbar").removeClass("navbar-dark");
             $("#navbar").removeClass("bg-dark");
         } else {
             //background on scroll
             $("#navbar").removeClass("bgLight");
+            $("#navbar").removeClass("navbar-light");
             $("#navbar").addClass("navbar-dark");
             $("#navbar").addClass("bg-dark");
         }

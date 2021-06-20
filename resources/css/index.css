@@ -1,10 +1,29 @@
-.navbar-brand {
-    padding-left: 10%;
-}
-
 * {
     box-sizing: border-box;
     font-family: ABeeZee-Regular;
+}
+
+.bgLight {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.logo {
+    height: 39px;
+}
+
+.navbar-brand {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-left: 1%;
+    color: white !important;
+}
+
+a.nav-link {
+    color: white !important;
+}
+
+.mt001 {
+    margin-top: -57px;
 }
 
 img {
@@ -204,7 +223,7 @@ hr {
 
 .contactP {
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
     color: #ffffff;
 }
 

@@ -12,23 +12,24 @@
 
     <link rel="stylesheet" href="./resources/css/index.css">
     <link rel="stylesheet" href="./resources/css/services.css">
-    <title>Hello, world!</title>
+    <title>Salaar!</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Salaar</a>
+    <nav id="navbar" class="navbar sticky-top navbar-expand-lg bgLight">
+        <a class="navbar-brand" href="#">
+            <img src="./resources/img/logoBlack.png" class="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="./index.html">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="./services.html">Our Services</a>
+                    <a class="nav-link" href="#">Our Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./aboutus.html">About us</a>
@@ -46,17 +47,17 @@
           </div>
         </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
+                    <a class="nav-link" href="./index.html#contact">Contact Us</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
 
-    <div class="container">
+    <div class="mt001">
         <div id="punchLineDivIndex">
             <div id="pldIndexdesktop">
                 <h3 class="text-center">Punch Line</h3>
@@ -120,6 +121,34 @@
             </div>
         </div>
         <br />
+    </div>
+    <div id="contact">
+        <div class="col-md row" style="padding: 2% 6%;">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fa fa-map-marker-alt contactIcons" aria-hidden="true"></i>
+                    <h4 style="color: #ffffff;"><b>Address</b></h4>
+                    <p class="contactP"><b>Weifield Group Contracting</b></p>
+                    <p class="contactP">6950 S. Jordan Road<br> Centennial, CO 80112</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fa fa-phone-square contactIcons" aria-hidden="true"></i>
+                    <h4 style="color: #ffffff;"><b>Phone</b></h4>
+                    <p class="contactP"><b>Weifield Group Contracting</b></p>
+                    <p class="contactP">6950 S. Jordan Road<br/> Centennial, CO 80112</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fa fa-envelope contactIcons" aria-hidden="true"></i>
+                    <h4 style="color: #ffffff;"><b>Email</b></h4>
+                    <p class="contactP"><b>Weifield Group Contracting</b></p>
+                    <p class="contactP">6950 S. Jordan Road<br/> Centennial, CO 80112</p>
+                </div>
+            </div>
+        </div>
         <br />
     </div>
 

@@ -80,4 +80,49 @@
     function formatter(value, settings) {
         return value.toFixed(settings.decimals);
     }
+
+    $(window).on("scroll", function() {
+        if ($(window).scrollTop() < 60) {
+            //background at top
+            $("#navbar").addClass("bgLight");
+            $("#navbar").removeClass("navbar-dark");
+            $("#navbar").removeClass("bg-dark");
+        } else {
+            //background on scroll
+            $("#navbar").removeClass("bgLight");
+            $("#navbar").addClass("navbar-dark");
+            $("#navbar").addClass("bg-dark");
+        }
+    });
+
 })(jQuery);
+
+jQuery(function($) {
+    var scroller = true;
+    $(window).scroll(function() {
+        var hT = $(".counter").offset().top,
+            hH = $(".counter").outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
+        if (wS > hT + hH - wH && scroller) {
+            // custom formatting example
+            $(".count-number").data("countToOptions", {
+                formatter: function(value, options) {
+                    return value
+                        .toFixed(options.decimals)
+                        .replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
+                },
+            });
+
+            // start all the timers
+            $(".timer").each(count);
+            scroller = false;
+        }
+    });
+
+    function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data("countToOptions") || {});
+        $this.countTo(options);
+    }
+});

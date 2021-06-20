@@ -33,7 +33,6 @@ div#Image01Expandable,
     background-image: url('../img/bg_mission_statement.jpg');
     height: 40vh;
     width: 100%;
-    margin-top: 2vh;
     border-radius: 0.3rem;
     margin-bottom: 1vh;
 }

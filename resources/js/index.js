@@ -1,130 +1,29 @@
-(function($) {
-    $.fn.countTo = function(options) {
-        options = options || {};
+$(document).ready(function () {
+    console.log("ready!");
 
-        return $(this).each(function() {
-            // set options for current element
-            var settings = $.extend({},
-                $.fn.countTo.defaults, {
-                    from: $(this).data("from"),
-                    to: $(this).data("to"),
-                    speed: $(this).data("speed"),
-                    refreshInterval: $(this).data("refresh-interval"),
-                    decimals: $(this).data("decimals"),
-                },
-                options
-            );
-
-            // how many times to update the value, and how much to increment the value on each update
-            var loops = Math.ceil(settings.speed / settings.refreshInterval),
-                increment = (settings.to - settings.from) / loops;
-
-            // references & variables that will change with each update
-            var self = this,
-                $self = $(this),
-                loopCount = 0,
-                value = settings.from,
-                data = $self.data("countTo") || {};
-
-            $self.data("countTo", data);
-
-            // if an existing interval can be found, clear it first
-            if (data.interval) {
-                clearInterval(data.interval);
-            }
-            data.interval = setInterval(updateTimer, settings.refreshInterval);
-
-            // initialize the element with the starting value
-            render(value);
-
-            function updateTimer() {
-                value += increment;
-                loopCount++;
-
-                render(value);
-
-                if (typeof settings.onUpdate == "function") {
-                    settings.onUpdate.call(self, value);
-                }
-
-                if (loopCount >= loops) {
-                    // remove the interval
-                    $self.removeData("countTo");
-                    clearInterval(data.interval);
-                    value = settings.to;
-
-                    if (typeof settings.onComplete == "function") {
-                        settings.onComplete.call(self, value);
-                    }
-                }
-            }
-
-            function render(value) {
-                var formattedValue = settings.formatter.call(self, value, settings);
-                $self.html(formattedValue);
-            }
-        });
+    const ELS_pinEntry = document.querySelectorAll(".pinEntry");
+    const selectAllIfFull = (evt) => {
+        const EL_input = evt.currentTarget;
+        if (EL_input.value.length >= 4) EL_input.select();
     };
-
-    $.fn.countTo.defaults = {
-        from: 0, // the number the element should start at
-        to: 0, // the number the element should end at
-        speed: 1000, // how long it should take to count between the target numbers
-        refreshInterval: 100, // how often the element should be updated
-        decimals: 0, // the number of decimal places to show
-        formatter: formatter, // handler for formatting the value before rendering
-        onUpdate: null, // callback method for every time the element is updated
-        onComplete: null, // callback method for when the element finishes updating
-    };
-
-    function formatter(value, settings) {
-        return value.toFixed(settings.decimals);
-    }
-
-    $(window).on("scroll", function() {
-        if ($(window).scrollTop() < 60) {
-            //background at top
-            $("#navbar").addClass("bgLight");
-            $("#navbar").addClass("navbar-light");
-            $("#navbar").removeClass("navbar-dark");
-            $("#navbar").removeClass("bg-dark");
-        } else {
-            //background on scroll
-            $("#navbar").removeClass("bgLight");
-            $("#navbar").removeClass("navbar-light");
-            $("#navbar").addClass("navbar-dark");
-            $("#navbar").addClass("bg-dark");
-        }
+    ELS_pinEntry.forEach(el => {
+        el.addEventListener("focusin", selectAllIfFull);
     });
 
-})(jQuery);
 
-jQuery(function($) {
-    var scroller = true;
-    $(window).scroll(function() {
-        var hT = $(".counter").offset().top,
-            hH = $(".counter").outerHeight(),
-            wH = $(window).height(),
-            wS = $(this).scrollTop();
-        if (wS > hT + hH - wH && scroller) {
-            // custom formatting example
-            $(".count-number").data("countToOptions", {
-                formatter: function(value, options) {
-                    return value
-                        .toFixed(options.decimals)
-                        .replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
-                },
-            });
-
-            // start all the timers
-            $(".timer").each(count);
-            scroller = false;
-        }
+    $("#login_with_phone").on("click",function (e) {
+        $(".show1").toggleClass('d-none')
+        $(".show2").toggleClass('d-none')
     });
+    $("#login_with_email").on("click",function (e) {
+        $(".show1").toggleClass('d-none')
+        $(".show2").toggleClass('d-none')
+    });
+    $("#mobile_next").on("click",function (e) {
+        $(".show2").toggleClass('d-none')
+        $(".show3").toggleClass('d-none')
+    });
+    
 
-    function count(options) {
-        var $this = $(this);
-        options = $.extend({}, options || {}, $this.data("countToOptions") || {});
-        $this.countTo(options);
-    }
 });
+

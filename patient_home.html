@@ -14,8 +14,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100,200,300,400,500,600,700,800,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+        integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./resources/css/index.css">
     <title>Doctor Patient</title>
@@ -46,7 +50,8 @@
             </ul>
 
             <div class="my-2 my-lg-0" style="float: right;text-align: right;margin-left: auto;">
-                <ul class="nav justify-content-center" style="padding-right: 80px;">
+                <button type="button" class="btn btn-link mr-3"  onclick="window.location.href='./index.html'">Logout</button>
+                <!-- <ul class="nav justify-content-center" style="padding-right: 80px;">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -56,22 +61,376 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
             </div>
 
         </div>
     </nav>
-<div>
-    <!-- <p>Welcome to Doctor Appointment Portal!</p> -->
-    <!-- <h2>Our Team Of Doctors</h2> -->
-    <br/>
-    <br/>
-    <h2>Under construction</h2>
-    <br/>
-    <br/>
-    <br/>
-</div>
 
+    <!-- Modals -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Select Timeslot</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal1closer">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p style="margin: 2px 0;margin-top: 0.5rem;font-weight: bold;">Select date</p>
+                        <div class="input-group date"
+                            style="border: 1px solid;color: #6c757d; border-color: #6c757db8;border-radius: 30px; width: fit-content;">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"
+                                    style="background: transparent;border: none;font-size: 12px;">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <!-- <span class="fa fa-calend"></span> -->
+                                </span>
+                            </div>
+                            <input type="text" class="form-control-filter" name="first_name">
+                        </div>
+
+                    </div>
+                    <div class="row ml-1">
+                        <div class="mr-3">
+                            <p style="margin: 2px 0;margin-top: 1.5rem;font-weight: bold;">Start time</p>
+                            <div class="input-group date"
+                                style="border: 1px solid;color: #6c757d; border-color: #6c757db8;border-radius: 30px; width: fit-content;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"
+                                        style="background: transparent;border: none;font-size: 12px;">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <!-- <span class="fa fa-calend"></span> -->
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control-filter" name="first_name">
+                            </div>
+
+                        </div>
+                        <div>
+                            <p style="margin: 2px 0;margin-top: 1.5rem;font-weight: bold;">End time</p>
+                            <div class="input-group date"
+                                style="border: 1px solid;color: #6c757d; border-color: #6c757db8;border-radius: 30px; width: fit-content;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"
+                                        style="background: transparent;border: none;font-size: 12px;">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <!-- <span class="fa fa-calend"></span> -->
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control-filter" name="first_name">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer " style="justify-content: center;margin-top: 1rem;margin-bottom: 0.5rem;">
+                    <button type="button" onclick="$('#modal1closer').click()" class="btn btn-primary"
+                        style="border-radius: 10px;padding-left: 1.5rem;padding-right: 1.5rem;" data-toggle="modal"
+                        data-target="#exampleModalCenter2">Book now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenter2Title">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Your appointment has been successfully booked.
+                    <br />
+                    We have received your request. We'll be in touch soon.
+                    <br />
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modals -->
+    <div class="container mt-5">
+        <p style="font-size: 22px;border-bottom: 1px solid black;width: fit-content;">Welcome to Doctor Appointment
+            Portal!</p>
+        <div>
+            <div class="w-100 text-center" style="margin-top: 4rem;">
+                <h2 class="font-weight-bold">Our Team Of Doctors</h2>
+            </div>
+
+            <div class="filters row my-5"
+                style="height: 31px;font-size: 14px !important;justify-content: space-between;">
+
+                <p class="filter-text">Area</p>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 11px;">
+                        abc street
+                    </button>
+                    <div class="dropdown-menu filter-select" aria-labelledby="dropdownMenuButton"
+                        x-placement="bottom-start"
+                        style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 34px, 0px);">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+
+                <p class="filter-text">Hospital</p>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 11px;">
+                        xyz hospital
+                    </button>
+                    <div class="dropdown-menu filter-select" aria-labelledby="dropdownMenuButton"
+                        x-placement="bottom-start"
+                        style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+
+                <p class="filter-text">Category</p>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 11px;">
+                        Heart Surgeon
+                    </button>
+                    <div class="dropdown-menu filter-select" aria-labelledby="dropdownMenuButton"
+                        x-placement="bottom-start"
+                        style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+
+                <div class="input-group"
+                    style="border: 1px solid;color: #6c757d; border-color: #6c757d;width: auto;border-radius: 5px; width: 275px;height: 30px;margin-left: 20px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="background: transparent;border: none;font-size: 12px;">
+                            <span class="fa fa-search"></span>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control-filter" name="first_name"
+                        placeholder="Search doctors by name or title">
+                </div>
+
+                <div class="btn-group btn-group-toggle" data-toggle="buttons"
+                    style="height: 30px;margin-left: 10px;border-radius: 7px;">
+                    <label class="btn btn-outline-info active" style="font-size: 11px;width: 65px;">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked=""> All
+                    </label>
+                    <label class="btn btn-outline-info" style="font-size: 11px;width: 65px;">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Male
+                    </label>
+                    <label class="btn btn-outline-info" style="font-size: 11px;width: 65px;">
+                        <input type="radio" name="options" id="option3" autocomplete="off"> Female
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-primary"
+                    style="font-size: 11px;border-radius: 20px;padding-left: 25px;padding-right: 25px;margin-left: 14px;">Submit</button>
+
+            </div>
+
+            <div class="container">
+                <div class="row col-md-12 my-5">
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px; margin-bottom: 1rem; font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12 my-5">
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card w-100" style="background: transparent;border-radius: 10px;">
+                            <div class="card-body w-100 text-center">
+                                <img class="card-img-top" src="./resources/img/john.png" alt="Card image cap"
+                                    style="height: 91px;width: 91px;margin: 0 auto;">
+                                <h5 class="card-title mt-2 mb-0">Dr. John Doe</h5>
+                                <p class="card-text font-weight-light" style="font-size: 14px;">Heart Surgeon</p>
+
+                                <hr class="solid" style="border: 1px solid rgba(0,0,0,.125);">
+
+                                <button type="button" class="btn btn-outline-primary w-100"
+                                    style="border-radius: 20px;margin-bottom: 1rem;font-size: 14px;"
+                                    onclick="window.location.href='./doctor_prof.html'">View
+                                    Profile</button>
+                                <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="border-radius: 20px;  margin-bottom: 1rem;font-size: 14px;">Book
+                                    Appointment</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
 
     <section id="footer" class="bg_grey" style="padding: 60px 0;">
         <div class="container">
@@ -169,6 +528,10 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+        integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="./resources/js/index.js"></script>
 

@@ -23,7 +23,16 @@ $(document).ready(function () {
         $(".show2").toggleClass('d-none')
         $(".show3").toggleClass('d-none')
     });
-    
-
+    console.log("$('.input-group.date')");
+    console.log($('.input-group.date'));
+    $('.input-group.date').on("click",function () {
+        console.log("clicked");
+    })
+    $('.input-group.date').datepicker({
+        clearBtn: true,
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true
+    });
 });
 

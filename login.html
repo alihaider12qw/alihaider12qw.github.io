@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./resources/css/index.css">
+    <title>Doctor Patient</title>
+</head>
+
+<body>
+    <div class="" style="height: 100vh;">
+        <div class="col-md-12 p-0 h-100 row">
+            <div class="col-md-5 bg_grey h-100 p-0">
+                <img src="./resources/img/doc4.jpg" alt="" style="/* border: 1px solid #11a09d; */
+                /* border-radius: 40px; */width: 100%;height: 100%;object-fit: fill;">
+            </div>
+
+            <div class="col-md-7 h-100 p-0">
+                <div class="w-100 p-5 d-flex justify-content-center align-items-center h-100">
+                    <!-- <form action="/login" method="post" class="w-100"> -->
+                    <div class="w-100">
+                        <h2 class="" style="padding-bottom: 7rem;">Sign in</h2>
+
+                        <div class="show1">
+                            <div class="form-group">
+                                <div class="input-group w-100">
+                                    <input type="email" class="form-control" name="email" placeholder="Email"
+                                        required="required">
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="password" placeholder="Password"
+                                        required="required">
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" id="login" onclick="window.location.href='./choose_type.html'"
+                                    class="btn btn-info btn-lg w-100">Login</button>
+                            </div>
+                            <p class="w-100 text-center h4">OR</p>
+                            <div class="form-group">
+                                <button type="submit" id="login_with_phone"
+                                    class="btn btn-outline-info btn-lg w-100">Login with
+                                    Phone</button>
+                            </div>
+                            <br />
+                            <p class="w-100 text-center">Don't have an account? <a class="font-weight-bold"
+                                    href="./signup.html">Sign up
+                                    here</a></p>
+                        </div>
+                        <div class="show2 d-none">
+                            <p>Enter Mobile Number</p>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="mobile_number" required="required">
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" id="mobile_next" class="btn btn-info btn-lg w-100">Next</button>
+                            </div>
+                            <br />
+                            <p class="w-100 text-center h4">OR</p>
+                            <div class="form-group">
+                                <button type="submit" id="login_with_email"
+                                    class="btn btn-outline-info btn-lg w-100">Login with
+                                    Email</button>
+                            </div>
+                            <br />
+                            <p class="w-100 text-center">Don't have an account? <a class="font-weight-bold"
+                                    href="./signup.html">Sign up
+                                    here</a></p>
+                        </div>
+                        <div class="show3 d-none">
+                            <p>Enter code sent to your number </p>
+                            <sub class="font-weight-light">A 4 Digit pin has been sent to your number</sub>
+                            <br />
+                            <div class="pinBox">
+                                <input class="pinEntry" name="token" type=text maxlength=4 autocomplete=off>
+                            </div>
+
+                            <br />
+                            <br />
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" id="verify_otp"
+                                    onclick="window.location.href='./choose_type.html'"
+                                    class="btn btn-info btn-lg w-100">Verify</button>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" id="verify_otp" class="btn btn-outline-info btn-lg w-100">Resend
+                                    OTP</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script src="./resources/js/index.js"></script>
+
+</body>
+
+</html>
